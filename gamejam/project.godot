@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Gamejam"
+run/main_scene="uid://rxrv8up0rqnr"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
@@ -21,7 +22,6 @@ config/icon="res://Assets/icon.svg"
 2d_physics/layer_3="Decorations"
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Spells"
-2d_physics/layer_6="Consumables"
 
 [rendering]
 
