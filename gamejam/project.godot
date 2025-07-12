@@ -14,6 +14,15 @@ config/name="Gamejam"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Ground"
+2d_physics/layer_3="Decorations"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Spells"
+2d_physics/layer_6="Consumables"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
