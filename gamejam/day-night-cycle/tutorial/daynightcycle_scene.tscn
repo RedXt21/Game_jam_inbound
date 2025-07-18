@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg0m8w5o1js1t"]
+
+[ext_resource type="Script" uid="uid://bk2rki8hbdgxt" path="res://day-night-cycle/tutorial/daynightcycle_scene.gd" id="1_2tcb3"]
+[ext_resource type="PackedScene" uid="uid://bg27ojx5244u6" path="res://day-night-cycle/demo/audio/sound_machine.tscn" id="2_jh0d1"]
+[ext_resource type="Script" uid="uid://dwjni686tbmgc" path="res://day-night-cycle/demo/camera_movement.gd" id="6_acbig"]
+[ext_resource type="PackedScene" uid="uid://ceolcwatpaicu" path="res://day-night-cycle/demo/ui/daynightcycle_ui.tscn" id="7_fta5l"]
+
+[node name="DayNightCycleScene" type="Node2D"]
+script = ExtResource("1_2tcb3")
+
+[node name="SoundMachine" parent="." instance=ExtResource("2_jh0d1")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-24, -34)
+script = ExtResource("6_acbig")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DayNightCycleUI" parent="CanvasLayer" instance=ExtResource("7_fta5l")]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 7.0
+offset_bottom = 6.0
