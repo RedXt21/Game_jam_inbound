@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rxrv8up0rqnr"]
 
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://bg0m8w5o1js1t" path="res://day-night-cycle/tutorial/daynightcycle_scene.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://day-night-cycle/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -36.0
