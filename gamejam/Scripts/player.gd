@@ -3,23 +3,30 @@ extends CharacterBody2D
 # --- Player Progression Counters ---
 var steps_taken = 0
 var jumps_performed = 0
-var attacks_made = 0
 
 # --- Unlock Flags ---
 var speed_upgraded = false
 var double_jump_unlocked = false
-var combo_attack_unlocked = false
 var dash_unlocked = false
-var magic_unlocked = false
 
 # --- Player Stats ---
-var SPEED = 300.0
-const BASE_SPEED = 300.0
-const UPGRADED_SPEED = 400.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED = 150.0
+@export_range(0,1) var deceleration = 0.1
+@export_range(0,1) var acceleration = 0.1
+const BASE_SPEED = 150.0
+const UPGRADED_SPEED = 250.0
+@export var JUMP_VELOCITY = -400.0
+@export_range(0,1) var decelerate_on_jump_release = 0.5
 
 # --- Double Jump State ---
 var has_double_jumped = false
+
+# --- Wall Jump State ---
+var is_wall_sliding = false
+var wall_slide_speed = 200.0
+var wall_jump_force = Vector2(300.0, -350.0)
+var can_wall_jump = true
+var was_on_wall = false
 
 func _ready():
 	load_progress()
@@ -30,37 +37,50 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jumps_performed += 1
 			has_double_jumped = false
+			_check_jump_milestone()
+		elif (is_on_wall() or was_on_wall) and can_wall_jump:
+			# Wall jump takes priority over double jump
+			var wall_jump_direction = 1 if get_wall_normal().x < 0 else -1
+			velocity.x = wall_jump_force.x * wall_jump_direction
+			velocity.y = wall_jump_force.y
+			can_wall_jump = false
+			has_double_jumped = false  # Allow double jump after wall jump
+			jumps_performed += 1
 			_check_jump_milestone()
 		elif double_jump_unlocked and not has_double_jumped:
 			velocity.y = JUMP_VELOCITY
 			has_double_jumped = true
 			jumps_performed += 1
 			_check_jump_milestone()
-
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y *= decelerate_on_jump_release
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
 		# Count a step only if moving and on the ground
 		if is_on_floor():
 			steps_taken += 1
 			_check_step_milestone()
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
+	handle_wall_slide()
 	move_and_slide()
 
-	# --- Placeholder: Attack Input ---
-	# Replace 'ui_attack' with your actual attack action name
-	if Input.is_action_just_pressed("attack"):
-		attacks_made += 1
-		_check_attack_milestone()
-		# Call your attack function here
+	# Wall slide and reset wall jump
+	handle_wall_slide()
+	
+	# Reset wall jump when touching floor
+	if is_on_floor():
+		can_wall_jump = true
+
+	# Update was_on_wall for next frame
+	was_on_wall = is_on_wall()
 
 # --- Milestone Check Functions ---
 func _check_step_milestone():
@@ -76,20 +96,13 @@ func _check_jump_milestone():
 		print("Double jump unlocked!")
 		save_progress()
 
-func _check_attack_milestone():
-	if not combo_attack_unlocked and attacks_made >= 5:
-		combo_attack_unlocked = true
-		print("Combo attack unlocked!")
-		save_progress()
 
 func save_progress():
 	var save_data = {
 		"steps_taken": steps_taken,
 		"jumps_performed": jumps_performed,
-		"attacks_made": attacks_made,
 		"speed_upgraded": speed_upgraded,
 		"double_jump_unlocked": double_jump_unlocked,
-		"combo_attack_unlocked": combo_attack_unlocked
 	}
 	var file = FileAccess.open("user://player_progress.save", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -106,10 +119,18 @@ func load_progress():
 		var save_data = json.data
 		steps_taken = save_data.get("steps_taken", 0)
 		jumps_performed = save_data.get("jumps_performed", 0)
-		attacks_made = save_data.get("attacks_made", 0)
 		speed_upgraded = save_data.get("speed_upgraded", false)
 		double_jump_unlocked = save_data.get("double_jump_unlocked", false)
-		combo_attack_unlocked = save_data.get("combo_attack_unlocked", false)
 		# Apply upgrades if already unlocked
 		if speed_upgraded:
 			SPEED = UPGRADED_SPEED
+
+func handle_wall_slide():
+	# Check if touching a wall
+	var is_near_wall = is_on_wall()
+	# Wall slide
+	if is_near_wall and not is_on_floor() and velocity.y > 0:
+		is_wall_sliding = true
+		velocity.y = min(velocity.y, wall_slide_speed)
+	else:
+		is_wall_sliding = false
