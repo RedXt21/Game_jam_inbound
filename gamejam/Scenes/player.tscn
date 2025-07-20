@@ -1,37 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnn1u12tkiukt"]
+[gd_scene load_steps=10 format=3 uid="uid://bnn1u12tkiukt"]
 
 [ext_resource type="Script" uid="uid://dyqoh2pkh5u2f" path="res://Scripts/player.gd" id="1_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://dla1ywnpf43ly" path="res://Assets/Character/d_jump_effect.png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://b2321qk0nfm2o" path="res://Assets/Character/enemy_small.png" id="2_vgqql"]
 
 [sub_resource type="Curve" id="Curve_6t5aa"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.215111), -2.47924, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="Animation" id="Animation_3smsa"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_8erm5"]
-resource_name = "right_jump"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2.9802322e-08, 0.20000002, 0.4, 0.6, 0.79999995),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [4, 3, 2, 1, 0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8erm5"]
-_data = {
-&"RESET": SubResource("Animation_3smsa"),
-&"right_jump": SubResource("Animation_8erm5")
-}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
 radius = 7.0
@@ -113,20 +87,6 @@ dash_curve = SubResource("Curve_6t5aa")
 texture = ExtResource("2_vgqql")
 hframes = 5
 vframes = 15
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-visible = false
-position = Vector2(0, 28)
-texture = ExtResource("2_fkybt")
-hframes = 5
-frame = 4
-region_enabled = true
-region_rect = Rect2(0, 0, 160, 35)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_8erm5")
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
