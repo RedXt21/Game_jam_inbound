@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var effects_player: AnimationPlayer = $Sprite2D/Sprite2D/AnimationPlayer
 
 # --- Player Progression Counters ---
 var steps_taken = 0
@@ -75,34 +74,28 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
-	if is_on_floor():
-		if direction:
-			velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
-			if is_on_floor():
-				steps_taken += 1
-				_check_step_milestone()
-			# Play movement animation
-			play_movement_animation(velocity)
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
-			# Play idle animation when not moving
-			play_idle_animation()
+	if direction:
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
+		# Count a step only if moving and on the ground
+		if is_on_floor():
+			steps_taken += 1
+			_check_step_milestone()
+		# Play movement animation
+		play_movement_animation(velocity)
 	else:
-		# In air: maintain horizontal velocity, play jump animation
-		play_jump_animation(velocity)
+		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
+		# Play idle animation when not moving
+		play_idle_animation()
 	handle_wall_slide()
 	if Input.is_action_just_pressed('dash') and direction and not is_dashing and dash_timer <= 0:
 		if dash_unlocked:
 			is_dashing = true
 			dash_start_position = position.x
-			# Play dash animation (use right_walk for now)
 			play_dash_animation(Vector2(direction, 0))
 			dash_direction = direction
 			dash_timer = dash_cooldown
 		else:
-			# Optionally, give feedback
 			print("Dash not unlocked yet!")
-	
 	if is_dashing:
 		var current_distance = abs(position.x - dash_start_position)
 		if current_distance >= dash_max_distance or is_on_wall():
@@ -178,7 +171,7 @@ func handle_wall_slide():
 		is_wall_sliding = false
 
 # --- AnimationPlayer Helper Functions ---
-func play_movement_animation(_velocity: Vector2):
+func play_movement_animation(velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -189,7 +182,7 @@ func play_movement_animation(_velocity: Vector2):
 func play_idle_animation():
 	animation_player.play("right_idle")
 
-func play_dash_animation(_velocity: Vector2):
+func play_dash_animation(velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -197,7 +190,7 @@ func play_dash_animation(_velocity: Vector2):
 		sprite.flip_h = true
 		animation_player.play("right_walk")
 
-func play_jump_animation(_velocity: Vector2):
+func play_jump_animation(velocity: Vector2):
 	if velocity.x < 0:
 		sprite.flip_h = true
 		animation_player.play("right_jump")
