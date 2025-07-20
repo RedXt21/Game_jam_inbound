@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bg0m8w5o1js1t"]
 
-[ext_resource type="PackedScene" uid="uid://bg27ojx5244u6" path="res://day-night-cycle/demo/audio/sound_machine.tscn" id="2_jh0d1"]
-[ext_resource type="Script" uid="uid://dwjni686tbmgc" path="res://day-night-cycle/demo/camera_movement.gd" id="6_acbig"]
-[ext_resource type="PackedScene" uid="uid://ceolcwatpaicu" path="res://day-night-cycle/demo/ui/daynightcycle_ui.tscn" id="7_fta5l"]
+[ext_resource type="PackedScene" uid="uid://bg27ojx5244u6" path="res://Day And Night/demo/audio/sound_machine.tscn" id="2_jh0d1"]
+[ext_resource type="Script" uid="uid://dwjni686tbmgc" path="res://Day And Night/demo/camera_movement.gd" id="6_acbig"]
+[ext_resource type="PackedScene" uid="uid://ceolcwatpaicu" path="res://Day And Night/demo/ui/daynightcycle_ui.tscn" id="7_fta5l"]
 
 [sub_resource type="GDScript" id="GDScript_t10er"]
 script/source = "extends Node2D

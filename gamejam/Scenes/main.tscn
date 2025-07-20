@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://rxrv8up0rqnr"]
+[gd_scene load_steps=11 format=3 uid="uid://rxrv8up0rqnr"]
 
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://day-night-cycle/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://l5imdu8qi60g" path="res://Scenes/platforms.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bph7k3koy06s3" path="res://Scenes/pick_ups.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_21xkr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -36.0
@@ -55,7 +56,10 @@ collision_mask = 30
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 zoom = Vector2(4, 4)
+limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -84,4 +88,6 @@ position = Vector2(-362, -39)
 position = Vector2(-483, -39)
 
 [node name="PickUps2" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(5, -2)
+position = Vector2(224, -57)
+
+[node name="Killzone" parent="." instance=ExtResource("6_21xkr")]

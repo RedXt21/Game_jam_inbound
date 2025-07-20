@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjn8wqs6tgy71"]
+
+[ext_resource type="Script" uid="uid://7aati1nq7jrk" path="res://Day And Night/demo/daynightcycle_scene.gd" id="1_2vpqm"]
+[ext_resource type="PackedScene" uid="uid://bg27ojx5244u6" path="res://Day And Night/demo/audio/sound_machine.tscn" id="2_tcd40"]
+[ext_resource type="Script" uid="uid://btqhu6qqppt1v" path="res://Day And Night/demo/daynightcycle.gd" id="7_2hfvm"]
+[ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://Resources/Day And Night/daynightcycle-gradient-texture.tres" id="8_q68bt"]
+[ext_resource type="PackedScene" uid="uid://ceolcwatpaicu" path="res://Day And Night/demo/ui/daynightcycle_ui.tscn" id="9_6s66b"]
+
+[node name="DayNightCycleScene" type="Node2D"]
+script = ExtResource("1_2vpqm")
+
+[node name="SoundMachine" parent="." instance=ExtResource("2_tcd40")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+script = ExtResource("7_2hfvm")
+gradient_texture = ExtResource("8_q68bt")
+INGAME_SPEED = 10.0
+INITIAL_HOUR = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DayNightCycleUI" parent="CanvasLayer" instance=ExtResource("9_6s66b")]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 7.0
+offset_bottom = 6.0

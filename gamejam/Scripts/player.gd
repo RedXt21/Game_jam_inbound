@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 # --- Player Progression Counters ---
 var steps_taken = 0
 var jumps_performed = 0
@@ -61,14 +63,19 @@ func _physics_process(delta: float) -> void:
 		velocity.y *= decelerate_on_jump_release
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
 		# Count a step only if moving and on the ground
 		if is_on_floor():
 			steps_taken += 1
 			_check_step_milestone()
+		# Play movement animation
+		animated_sprite_2d.play_movement_animation(velocity)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
+		# Play idle animation when not moving
+		animated_sprite_2d.play_idle_animation()
 	handle_wall_slide()
 	move_and_slide()
 
