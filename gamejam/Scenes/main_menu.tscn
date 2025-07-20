@@ -78,10 +78,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -138.0
-offset_right = 236.0
-offset_bottom = -37.0
+offset_left = 124.0
+offset_top = -305.0
+offset_right = 308.0
+offset_bottom = -204.0
 grow_vertical = 0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
@@ -108,10 +108,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -132.0
-offset_top = 85.0
-offset_right = 145.0
-offset_bottom = 147.0
+offset_left = -466.0
+offset_top = 236.0
+offset_right = -189.0
+offset_bottom = 298.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="CenterContainer"]

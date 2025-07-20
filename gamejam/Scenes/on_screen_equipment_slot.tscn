@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4kqa1eth84sy"]
+
+[ext_resource type="Texture2D" uid="uid://byvqmcbnu8o2e" path="res://assets/HUD/Dialog/FacesetBox.png" id="1_8mq5k"]
+[ext_resource type="Script" uid="uid://doj31gwppyh1a" path="res://scripts/on_screen_equipment_slot.gd" id="1_lt417"]
+[ext_resource type="Theme" uid="uid://bw2nrbbxahryd" path="res://Resources/Theme/inventoryUI.tres" id="2_aub4c"]
+
+[node name="onScreenEquipmentSlot" type="VBoxContainer"]
+clip_contents = true
+offset_right = 25.0
+offset_bottom = 36.0
+script = ExtResource("1_lt417")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("1_8mq5k")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Stacks_label" type="Label" parent="NinePatchRect"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.914
+anchor_top = 0.9
+anchor_right = 0.914
+anchor_bottom = 0.9
+offset_left = -7.85
+offset_top = -8.5
+offset_right = 20.15
+offset_bottom = 10.5
+scale = Vector2(0.214142, 0.380709)
+theme = ExtResource("2_aub4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/CenterContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 5.0
+color = Color(1, 1, 0, 0.337255)
+
+[node name="slotLabel" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_aub4c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 5
+text = "R. HAND"
+horizontal_alignment = 1
+vertical_alignment = 1
