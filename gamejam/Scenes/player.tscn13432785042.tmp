@@ -1,12 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://bnn1u12tkiukt"]
+[gd_scene load_steps=29 format=3 uid="uid://bnn1u12tkiukt"]
 
 [ext_resource type="Script" uid="uid://dyqoh2pkh5u2f" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bo7plaq5wvudl" path="res://Assets/Character/mc-updated1.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cl4ypswnh4xj" path="res://Resources/player_collision/player_collision_shape.tres" id="2_cvnsp"]
-
-[sub_resource type="Curve" id="Curve_6t5aa"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.215111), -2.47924, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -201,7 +197,11 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6t5aa")
-dash_curve = SubResource("Curve_6t5aa")
+SPEED = null
+deceleration = null
+acceleration = null
+JUMP_VELOCITY = null
+decelerate_on_jump_release = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f60y1")
