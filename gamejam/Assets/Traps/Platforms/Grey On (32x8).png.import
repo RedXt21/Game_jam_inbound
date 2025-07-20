@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1cq2ea05gwok"
-path="res://.godot/imported/Grey On (32x8).png-d0507c3d06d603dd2acca88d165e22ff.ctex"
+path="res://.godot/imported/Grey On (32x8).png-eaa62479fd059b10d355a6037e608805.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Free/Traps/Platforms/Grey On (32x8).png"
-dest_files=["res://.godot/imported/Grey On (32x8).png-d0507c3d06d603dd2acca88d165e22ff.ctex"]
+source_file="res://Assets/Traps/Platforms/Grey On (32x8).png"
+dest_files=["res://.godot/imported/Grey On (32x8).png-eaa62479fd059b10d355a6037e608805.ctex"]
 
 [params]
 

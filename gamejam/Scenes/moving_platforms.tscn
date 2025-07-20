@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://l5imdu8qi60g"]
-
-[node name="MovingPlatforms" type="AnimatableBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
