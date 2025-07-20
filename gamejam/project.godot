@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="Gamejam"
-run/main_scene="uid://3s12bhj4aj4o"
+run/main_scene="uid://rxrv8up0rqnr"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [audio]
 
 buses/default_bus_layout="res://Resources/default_bus_layout.tres"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -85,3 +89,4 @@ dash={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.270588, 0.239216, 0.309804, 1)
