@@ -88,9 +88,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed('dash') and direction and not is_dashing and dash_timer <= 0:
 		is_dashing = true
 		dash_start_position = position.x
+		# Play dash animation
+		animated_sprite_2d.play_dash_animation(Vector2(direction, 0))
 		dash_direction = direction
 		dash_timer = dash_cooldown
-		
+	
 	if is_dashing:
 		var current_distance = abs(position.x - dash_start_position)
 		if current_distance >= dash_max_distance or is_on_wall():
