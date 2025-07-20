@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rxrv8up0rqnr"]
+[gd_scene load_steps=5 format=3 uid="uid://rxrv8up0rqnr"]
 
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://day-night-cycle/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
