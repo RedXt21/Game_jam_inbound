@@ -23,8 +23,8 @@ tracks/0/keys = {
 "values": [4]
 }
 
-[sub_resource type="Animation" id="Animation_8erm5"]
-resource_name = "right_jump"
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "jump_effects"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,7 +41,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8erm5"]
 _data = {
 &"RESET": SubResource("Animation_3smsa"),
-&"right_jump": SubResource("Animation_8erm5")
+&"jump_effects": SubResource("Animation_x3wgy")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
