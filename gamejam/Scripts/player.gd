@@ -96,7 +96,6 @@ func _check_jump_milestone():
 		print("Double jump unlocked!")
 		save_progress()
 
-
 func save_progress():
 	var save_data = {
 		"steps_taken": steps_taken,

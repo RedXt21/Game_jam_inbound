@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b435cqm35cj4u"
-path="res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"
+uid="uid://n4qd42xf2rxm"
+path="res://.godot/imported/Bottom Hit (54x52).png-d2ba807e92f62d0e127edfc4193cc2fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daynightcycle-ui.png"
-dest_files=["res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"]
+source_file="res://Assets/Free/Traps/Spike Head/Bottom Hit (54x52).png"
+dest_files=["res://.godot/imported/Bottom Hit (54x52).png-d2ba807e92f62d0e127edfc4193cc2fe.ctex"]
 
 [params]
 

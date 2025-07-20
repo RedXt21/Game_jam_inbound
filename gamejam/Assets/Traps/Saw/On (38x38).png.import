@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b435cqm35cj4u"
-path="res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"
+uid="uid://dhxasr2nm5xtp"
+path="res://.godot/imported/On (38x38).png-aa3713cd04dbb16dbe521c8645282dae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daynightcycle-ui.png"
-dest_files=["res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"]
+source_file="res://Assets/Free/Traps/Saw/On (38x38).png"
+dest_files=["res://.godot/imported/On (38x38).png-aa3713cd04dbb16dbe521c8645282dae.ctex"]
 
 [params]
 
