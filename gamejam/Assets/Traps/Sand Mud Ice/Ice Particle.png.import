@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b435cqm35cj4u"
-path="res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"
+uid="uid://btbyatt8rp584"
+path="res://.godot/imported/Ice Particle.png-3652942dc430c76b8b38de64a07d0d10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daynightcycle-ui.png"
-dest_files=["res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"]
+source_file="res://Assets/Free/Traps/Sand Mud Ice/Ice Particle.png"
+dest_files=["res://.godot/imported/Ice Particle.png-3652942dc430c76b8b38de64a07d0d10.ctex"]
 
 [params]
 

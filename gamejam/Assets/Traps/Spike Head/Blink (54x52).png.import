@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b435cqm35cj4u"
-path="res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"
+uid="uid://dkv5hrlssx4x6"
+path="res://.godot/imported/Blink (54x52).png-02f76c458f280af5f8396ff32caa396d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daynightcycle-ui.png"
-dest_files=["res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"]
+source_file="res://Assets/Free/Traps/Spike Head/Blink (54x52).png"
+dest_files=["res://.godot/imported/Blink (54x52).png-02f76c458f280af5f8396ff32caa396d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b435cqm35cj4u"
-path="res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"
+uid="uid://dperfcld0il8f"
+path="res://.godot/imported/Spiked Ball.png-09ca38a03b44da225284fd5486d25173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daynightcycle-ui.png"
-dest_files=["res://.godot/imported/daynightcycle-ui.png-9033f723b0ea2a1a784b6fd398fd20a6.ctex"]
+source_file="res://Assets/Free/Traps/Spiked Ball/Spiked Ball.png"
+dest_files=["res://.godot/imported/Spiked Ball.png-09ca38a03b44da225284fd5486d25173.ctex"]
 
 [params]
 
