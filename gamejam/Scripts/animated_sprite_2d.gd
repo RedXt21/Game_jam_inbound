@@ -16,8 +16,16 @@ func play_movement_animation(velocity: Vector2):
 		play("right_walk")
 	elif velocity.x < 0:
 		flip_h = true
-		play("left_walk")
+		play("right_walk")
 
 func play_idle_animation():
 	if movementToIdle.keys().has(animation):
 		play(movementToIdle[animation])
+
+func play_dash_animation(velocity: Vector2):
+	if velocity.x > 0:
+		flip_h = false
+		play("right_dash")
+	elif velocity.x < 0:
+		flip_h = true
+		play("right_dash")

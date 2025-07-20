@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3s12bhj4aj4o"]
+[gd_scene load_steps=9 format=3 uid="uid://3s12bhj4aj4o"]
 
 [ext_resource type="Script" uid="uid://vsjkub5vkru" path="res://Scripts/foreground.gd" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://culraepq8v8dm" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
@@ -7,18 +7,6 @@
 [ext_resource type="FontFile" uid="uid://dtmohsg271ot4" path="res://Assets/fonts/RebellionSquad-ZpprZ.ttf" id="5_n45e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opfnp"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -90,12 +78,6 @@ theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
 text = "START"
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_1ehe0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_opfnp")
-text = "CREDITS"
-
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1ehe0")
@@ -121,5 +103,4 @@ theme_override_font_sizes/font_size = 50
 text = "GAME NAME"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
