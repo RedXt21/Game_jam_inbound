@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://bnn1u12tkiukt"]
+[gd_scene load_steps=32 format=3 uid="uid://bnn1u12tkiukt"]
 
 [ext_resource type="Script" uid="uid://dyqoh2pkh5u2f" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://bo7plaq5wvudl" path="res://Assets/Character/mc-updated1.png" id="1_v0iea"]
 [ext_resource type="Shape2D" uid="uid://cl4ypswnh4xj" path="res://Resources/player_collision/player_collision_shape.tres" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://b2321qk0nfm2o" path="res://Assets/Character/enemy_small.png" id="3_fkybt"]
 [ext_resource type="Script" uid="uid://ckyx4iu5ylmdq" path="res://Scripts/animated_sprite_2d.gd" id="3_vgqql"]
 
 [sub_resource type="Curve" id="Curve_6t5aa"]
@@ -82,28 +83,28 @@ atlas = ExtResource("1_v0iea")
 region = Rect2(160, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(128, 416, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(32, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(0, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(64, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(32, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(96, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(64, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(128, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(96, 448, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(160, 128, 32, 32)
+atlas = ExtResource("3_fkybt")
+region = Rect2(128, 448, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f60y1"]
 animations = [{
@@ -197,7 +198,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -208,6 +209,8 @@ dash_curve = SubResource("Curve_6t5aa")
 sprite_frames = SubResource("SpriteFrames_f60y1")
 animation = &"right_walk"
 autoplay = "left_idle"
+frame = 1
+frame_progress = 0.125452
 script = ExtResource("3_vgqql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
