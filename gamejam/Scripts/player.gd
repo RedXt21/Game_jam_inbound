@@ -19,6 +19,14 @@ const BASE_SPEED = 150.0
 const UPGRADED_SPEED = 250.0
 @export var JUMP_VELOCITY = -400.0
 @export_range(0,1) var decelerate_on_jump_release = 0.5
+@export var dash_speed = 1000.0
+@export var dash_max_distance = 300.0
+@export var dash_curve : Curve
+@export var dash_cooldown = 1.0
+@export var is_dashing := false
+@export var dash_start_position := 0.0
+@export var dash_direction := 0
+@export var dash_timer := 0.0
 
 # --- Double Jump State ---
 var has_double_jumped = false
@@ -77,6 +85,22 @@ func _physics_process(delta: float) -> void:
 		# Play idle animation when not moving
 		animated_sprite_2d.play_idle_animation()
 	handle_wall_slide()
+	if Input.is_action_just_pressed('dash') and direction and not is_dashing and dash_timer <= 0:
+		is_dashing = true
+		dash_start_position = position.x
+		dash_direction = direction
+		dash_timer = dash_cooldown
+		
+	if is_dashing:
+		var current_distance = abs(position.x - dash_start_position)
+		if current_distance >= dash_max_distance or is_on_wall():
+			is_dashing = false
+		else:
+			velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
+			velocity.y =0
+	if dash_timer > 0 :
+		dash_timer -= delta
+		
 	move_and_slide()
 
 	# Wall slide and reset wall jump
