@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rxrv8up0rqnr"]
+[gd_scene load_steps=12 format=3 uid="uid://rxrv8up0rqnr"]
 
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bph7k3koy06s3" path="res://Scenes/pick_ups.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="7_6bp64"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -36.0
@@ -49,6 +50,9 @@ _data = {
 }
 
 [node name="TestArea" type="Node2D"]
+
+[node name="TreasureChest" parent="." instance=ExtResource("7_6bp64")]
+position = Vector2(311, 18)
 
 [node name="Player" parent="." instance=ExtResource("2_8gbba")]
 collision_mask = 30

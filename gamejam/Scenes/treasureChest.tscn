@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp2ua4jt0i5f2"]
+
+[ext_resource type="Script" uid="uid://vacdh08mklr4" path="res://Scripts/treasure_chest.gd" id="1_gnc32"]
+[ext_resource type="Texture2D" uid="uid://j0h6r0rbu8iw" path="res://Assets/Items/treasure-chest.png" id="2_loxdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h37sr"]
+atlas = ExtResource("2_loxdu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loxdu"]
+atlas = ExtResource("2_loxdu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnc32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h37sr")
+}],
+"loop": true,
+"name": &"treasure_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loxdu")
+}],
+"loop": true,
+"name": &"treasure_opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnc32"]
+size = Vector2(55, 59)
+
+[node name="TreasureChest" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_gnc32")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gnc32")
+animation = &"treasure_closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -1.5)
+shape = SubResource("RectangleShape2D_gnc32")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

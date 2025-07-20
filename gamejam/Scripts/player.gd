@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var effects_player: AnimationPlayer = $Sprite2D/Sprite2D/AnimationPlayer
 
 # --- Player Progression Counters ---
 var steps_taken = 0
@@ -40,6 +41,7 @@ var can_wall_jump = true
 var was_on_wall = false
 
 func _ready():
+	add_to_group("player")
 	load_progress()
 
 func _physics_process(delta: float) -> void:
@@ -90,12 +92,16 @@ func _physics_process(delta: float) -> void:
 		play_jump_animation(velocity)
 	handle_wall_slide()
 	if Input.is_action_just_pressed('dash') and direction and not is_dashing and dash_timer <= 0:
-		is_dashing = true
-		dash_start_position = position.x
-		# Play dash animation (use right_walk for now)
-		play_dash_animation(Vector2(direction, 0))
-		dash_direction = direction
-		dash_timer = dash_cooldown
+		if dash_unlocked:
+			is_dashing = true
+			dash_start_position = position.x
+			# Play dash animation (use right_walk for now)
+			play_dash_animation(Vector2(direction, 0))
+			dash_direction = direction
+			dash_timer = dash_cooldown
+		else:
+			# Optionally, give feedback
+			print("Dash not unlocked yet!")
 	
 	if is_dashing:
 		var current_distance = abs(position.x - dash_start_position)
@@ -194,6 +200,11 @@ func play_dash_animation(_velocity: Vector2):
 func play_jump_animation(_velocity: Vector2):
 	if velocity.x < 0:
 		sprite.flip_h = true
+		animation_player.play("right_jump")
 	elif velocity.x > 0:
 		sprite.flip_h = false
-	animation_player.play("right_jump")
+		animation_player.play("right_jump")
+
+func unlock_dash():
+	dash_unlocked = true
+	print("Dash unlocked!")
