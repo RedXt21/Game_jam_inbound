@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gamejam"
-run/main_scene="uid://rxrv8up0rqnr"
+run/main_scene="uid://3s12bhj4aj4o"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [audio]
