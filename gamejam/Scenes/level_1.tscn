@@ -376,7 +376,13 @@ shape = SubResource("WorldBoundaryShape2D_evi0p")
 [node name="LevelChanger" parent="." instance=ExtResource("7_lsmp6")]
 position = Vector2(1224, 207)
 
-[node name="Label" type="Label" parent="."]
+[node name="TreasureChest" parent="." instance=ExtResource("10_chwpn")]
+position = Vector2(-131, -76)
+priority = -1
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
 offset_left = 28.0
 offset_top = 137.0
 offset_right = 216.0
@@ -384,14 +390,10 @@ offset_bottom = 172.0
 theme_override_fonts/font = ExtResource("8_xrdnt")
 text = "A or D to move."
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="Labels"]
 offset_left = 319.0
 offset_top = 146.0
 offset_right = 507.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("8_xrdnt")
 text = "Space to Jump."
-
-[node name="TreasureChest" parent="." instance=ExtResource("10_chwpn")]
-position = Vector2(-131, -76)
-priority = -1
