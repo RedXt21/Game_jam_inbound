@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://ciq3kuduf3rr5"]
+[gd_scene load_steps=12 format=4 uid="uid://ciq3kuduf3rr5"]
 
+[ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_cggpd"]
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_smnlx"]
 [ext_resource type="PackedScene" uid="uid://dabsktawxqffj" path="res://Scenes/parallax_background.tscn" id="1_v3rpw"]
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="3_12fag"]
+[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="4_1q6tm"]
+[ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="5_v36qu"]
+[ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="7_055b2"]
+[ext_resource type="Texture2D" uid="uid://bgf6c8onxtljx" path="res://Assets/Items/sign_post.png" id="8_2mgoq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12fag"]
 texture = ExtResource("1_smnlx")
@@ -289,7 +294,15 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_12fag")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_055b2"]
+distance = -292.0
+
 [node name="level_2" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_cggpd")]
+visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-3, -230)
@@ -300,3 +313,28 @@ tile_set = SubResource("TileSet_1q6tm")
 
 [node name="Player" parent="." instance=ExtResource("3_12fag")]
 position = Vector2(63, 185)
+
+[node name="DayNightCycleScene" parent="." instance=ExtResource("4_1q6tm")]
+
+[node name="LevelChanger" parent="." instance=ExtResource("5_v36qu")]
+position = Vector2(2083, 77)
+
+[node name="Killzone" parent="." instance=ExtResource("7_055b2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_055b2")
+
+[node name="SignPost" type="Sprite2D" parent="."]
+position = Vector2(1978, 187)
+texture = ExtResource("8_2mgoq")
+
+[node name="Label" type="Label" parent="SignPost"]
+anchors_preset = -1
+anchor_left = 0.625
+anchor_right = 0.625
+offset_left = -63.0
+offset_top = -29.0
+offset_right = 31.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 10
+text = "Try double jumping"
