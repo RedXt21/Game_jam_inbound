@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bevx3813ls2d1" path="res://Assets/Traps/Spike Head/Idle.png" id="1_a5dqs"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="2_gwqs2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwqs2"]
+size = Vector2(27, 27)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_a5dqs"]
 a = Vector2(19.5, -9)
 b = Vector2(19.5, 10)
@@ -18,10 +21,11 @@ b = Vector2(10, -19)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_qvr35"]
 b = Vector2(-19, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5dqs"]
-size = Vector2(27, 28)
-
 [node name="Spikes" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_gwqs2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a5dqs")
@@ -41,7 +45,3 @@ shape = SubResource("SegmentShape2D_0qgod")
 [node name="CollisionShape2DDown" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(10, 20)
 shape = SubResource("SegmentShape2D_qvr35")
-
-[node name="CollisionShape2DMain" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_a5dqs")

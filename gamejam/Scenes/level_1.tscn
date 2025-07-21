@@ -304,6 +304,7 @@ distance = -377.0
 [node name="DayNightCycleScene" parent="." instance=ExtResource("11_af3po")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_wrinw")]
 
