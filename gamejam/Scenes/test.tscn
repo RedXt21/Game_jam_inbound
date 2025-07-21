@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://rxrv8up0rqnr"]
+[gd_scene load_steps=10 format=3 uid="uid://rxrv8up0rqnr"]
 
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://l5imdu8qi60g" path="res://Scenes/platforms.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bph7k3koy06s3" path="res://Scenes/pick_ups.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="7_6bp64"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
@@ -85,13 +83,8 @@ libraries = {
 }
 autoplay = "moving"
 
-[node name="Spikes" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(-362, -39)
-
 [node name="PickUps" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(-483, -39)
 
 [node name="PickUps2" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(224, -57)
-
-[node name="Killzone" parent="." instance=ExtResource("6_21xkr")]

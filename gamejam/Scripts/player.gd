@@ -138,6 +138,7 @@ func save_progress():
 		"jumps_performed": jumps_performed,
 		"speed_upgraded": speed_upgraded,
 		"double_jump_unlocked": double_jump_unlocked,
+		"dash_unlocked": dash_unlocked,
 	}
 	var file = FileAccess.open("user://player_progress.save", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -156,6 +157,7 @@ func load_progress():
 		jumps_performed = save_data.get("jumps_performed", 0)
 		speed_upgraded = save_data.get("speed_upgraded", false)
 		double_jump_unlocked = save_data.get("double_jump_unlocked", false)
+		dash_unlocked = save_data.get("dash_unlocked", false)
 		# Apply upgrades if already unlocked
 		if speed_upgraded:
 			SPEED = UPGRADED_SPEED
@@ -199,5 +201,9 @@ func play_jump_animation(velocity: Vector2):
 		animation_player.play("right_jump")
 
 func unlock_dash():
-	dash_unlocked = true
-	print("Dash unlocked!")
+	if not dash_unlocked:
+		dash_unlocked = true
+		print("Dash unlocked!")
+		save_progress()
+	else:
+		print("Dash already unlocked.")

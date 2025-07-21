@@ -26,7 +26,7 @@ func open_chest(player):
 	is_open = true
 	animated_sprite_2d.play("treasure_opened")
 	emit_signal("chest_opened", player)
-	if player.has_method("unlock_dash"):
+	if player.has_method("unlock_dash") and not player.dash_unlocked:
 		player.unlock_dash()
 		print_debug("Dash Unlocked")
 	# Optionally: Give player an item, play sound, etc.
