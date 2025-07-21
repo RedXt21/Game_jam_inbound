@@ -8,9 +8,11 @@ func _on_quit_pressed() -> void:
 
 func _on_reset_pressed() -> void:
 	if FileAccess.file_exists("user://player_progress.save"):
-		FileAccess.remove("user://player_progress.save")
+		var dir = DirAccess.open("user://")
+		dir.remove("player_progress.save")
 	if FileAccess.file_exists("user://chest_states.save"):
-		FileAccess.remove("user://chest_states.save")
+		var dir = DirAccess.open("user://")
+		dir.remove("chest_states.save")
 	for player in get_tree().get_nodes_in_group("player"):
 		player.steps_taken = 0
 		player.jumps_performed = 0

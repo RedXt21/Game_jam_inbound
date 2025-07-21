@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://3s12bhj4aj4o"]
+[gd_scene load_steps=13 format=3 uid="uid://3s12bhj4aj4o"]
 
-[ext_resource type="Script" path="res://Scripts/foreground.gd" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://vsjkub5vkru" path="res://Scripts/foreground.gd" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://culraepq8v8dm" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
-[ext_resource type="Script" path="res://Scripts/character.gd" id="2_1ehe0"]
+[ext_resource type="Script" uid="uid://dbf78rxd62sqx" path="res://Scripts/character.gd" id="2_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://ddrd0x3egdgwk" path="res://Assets/background/background_layer_1.png" id="2_yhxw7"]
 [ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/fonts/SuperPixel-m2L8j.ttf" id="3_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://dxj5ddjnl23j7" path="res://Assets/background/background_layer_2.png" id="3_trj04"]
@@ -21,12 +21,12 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -39,6 +39,18 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhxw7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -86,14 +98,17 @@ theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
 text = "START"
 
-[node name="RESET" type="Button" parent="VBoxContainer"]
+[node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trj04")
+text = "RESET"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1ehe0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cp0ys")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
 text = "QUIT"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -114,5 +129,5 @@ theme_override_font_sizes/font_size = 50
 text = "FARUNG"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/RESET" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

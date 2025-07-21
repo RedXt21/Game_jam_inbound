@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://rxrv8up0rqnr"]
+[gd_scene load_steps=11 format=3 uid="uid://rxrv8up0rqnr"]
 
+[ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="1_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://l5imdu8qi60g" path="res://Scenes/platforms.tscn" id="3_8gbba"]
@@ -49,13 +50,15 @@ _data = {
 
 [node name="TestArea" type="Node2D"]
 
+[node name="Spikes" parent="." instance=ExtResource("1_i3aeo")]
+
 [node name="TreasureChest" parent="." instance=ExtResource("7_6bp64")]
 position = Vector2(311, 18)
 
 [node name="Player" parent="." instance=ExtResource("2_8gbba")]
 collision_mask = 30
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 zoom = Vector2(4, 4)
 limit_smoothed = true
