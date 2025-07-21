@@ -375,7 +375,7 @@ position = Vector2(428, -84)
 shape = SubResource("WorldBoundaryShape2D_evi0p")
 
 [node name="LevelChanger" parent="." instance=ExtResource("7_lsmp6")]
-position = Vector2(1220, 208)
+position = Vector2(1224, 207)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 28.0
