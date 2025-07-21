@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://7rt6il0gb3pt"]
+[gd_scene load_steps=23 format=4 uid="uid://7rt6il0gb3pt"]
 
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_53xsp"]
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_g5cw1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="6_qf6rc"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="8_5e78q"]
 [ext_resource type="Script" uid="uid://dkhkow2rp1lht" path="res://Scripts/levelchanger4.gd" id="9_l4wr6"]
+[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="10_5rvg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8nj6"]
 texture = ExtResource("1_g5cw1")
@@ -400,6 +401,8 @@ _data = {
 size = Vector2(25.5, 25)
 
 [node name="level_3" type="Node2D"]
+
+[node name="DayNightCycleScene" parent="." instance=ExtResource("10_5rvg2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
