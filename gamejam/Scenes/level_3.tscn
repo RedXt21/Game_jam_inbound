@@ -402,7 +402,6 @@ size = Vector2(25.5, 25)
 [node name="level_3" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_53xsp")]
 
