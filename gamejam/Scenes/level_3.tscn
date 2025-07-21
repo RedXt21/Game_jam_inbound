@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://7rt6il0gb3pt"]
+[gd_scene load_steps=18 format=4 uid="uid://7rt6il0gb3pt"]
 
+[ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_53xsp"]
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_g5cw1"]
 [ext_resource type="PackedScene" uid="uid://l5imdu8qi60g" path="res://Scenes/platforms.tscn" id="2_76ybr"]
 [ext_resource type="PackedScene" uid="uid://dabsktawxqffj" path="res://Scenes/parallax_background.tscn" id="3_76ybr"]
 [ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="4_vwg62"]
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="5_qf6rc"]
+[ext_resource type="PackedScene" uid="uid://bibhwabygq1jl" path="res://Scenes/spikes.tscn" id="6_qf6rc"]
+[ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="8_5e78q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8nj6"]
 texture = ExtResource("1_g5cw1")
@@ -291,7 +294,35 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_s8nj6")
 
-[sub_resource type="Animation" id="Animation_jjvhh"]
+[sub_resource type="Animation" id="Animation_vwg62"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(134, 133), Vector2(259, 133)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Platforms5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(459, 41), Vector2(459, 133)]
+}
+
+[sub_resource type="Animation" id="Animation_qf6rc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -303,13 +334,29 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-161, 2)]
+"values": [Vector2(134, 133)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Platforms5:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 41)]
 }
 
-[sub_resource type="Animation" id="Animation_8gbba"]
-resource_name = "moving"
-length = 5.0
-loop_mode = 2
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf6rc"]
+_data = {
+&"RESET": SubResource("Animation_qf6rc"),
+&"move": SubResource("Animation_vwg62")
+}
+
+[sub_resource type="Animation" id="Animation_53xsp"]
+resource_name = "move"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -317,40 +364,125 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-161, 2), Vector2(-445, 2)]
+"values": [Vector2(678, 57), Vector2(678, 133)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjvhh"]
-_data = {
-&"RESET": SubResource("Animation_jjvhh"),
-&"moving": SubResource("Animation_8gbba")
+[sub_resource type="Animation" id="Animation_5e78q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(678, 57)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e78q"]
+_data = {
+&"RESET": SubResource("Animation_5e78q"),
+&"move": SubResource("Animation_53xsp")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5e78q"]
+distance = -211.0
 
 [node name="level_3" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_53xsp")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAgAAAABAAAAAAABAAgAAAACAAAAAAACAAgAAAAAAAIAAAAAAAoAAAAAAAEAAAAAAAkAAAABAAEAAAABAAkAAAABAAIAAAABAAoAAAACAAEAAAACAAkAAAACAAIAAAACAAoAAAAAAAgAAAAGAAgAAAAAAAkAAAAGAAkAAAAAAAoAAAAGAAoAAAABAAgAAAAHAAgAAAABAAkAAAAHAAkAAAABAAoAAAAHAAoAAAACAAgAAAAHAAgAAAACAAkAAAAHAAkAAAACAAoAAAAHAAoAAAADAAgAAAAHAAgAAAADAAkAAAAHAAkAAAADAAoAAAAHAAoAAAAEAAgAAAAIAAgAAAAEAAkAAAAIAAkAAAAEAAoAAAAIAAoAAAAKAAgAAAAHAAEAAAAWAAYAAAAHAAEAAAAkAAoAAAAHAAEAAAAcAAIAAAASAAUAAAAqAAMAAAASAAUAAAAsAAsAAAASAAIAAAAtAAsAAAASAAIAAAAuAAsAAAASAAIAAAAvAAsAAAASAAIAAAAwAAsAAAASAAIAAAAxAAsAAAASAAIAAAAyAAsAAAASAAIAAAAzAAsAAAASAAIAAAA0AAsAAAASAAIAAAA1AAsAAAASAAIAAAA2AAsAAAASAAIAAAA3AAsAAAASAAIAAAA4AAsAAAASAAIAAAA5AAsAAAASAAIAAAA6AAsAAAASAAIAAAA7AAgAAAAGAAgAAAA7AAkAAAAGAAkAAAA7AAoAAAAGAAoAAAA8AAgAAAAHAAgAAAA8AAkAAAAHAAkAAAA8AAoAAAAHAAoAAAA9AAgAAAAIAAgAAAA9AAkAAAAIAAkAAAA9AAoAAAAIAAoAAAA/AAsAAAASAAIAAABAAAsAAAASAAIAAABBAAsAAAASAAIAAABCAAsAAAASAAIAAABDAAsAAAASAAIAAABEAAsAAAASAAIAAABFAAsAAAASAAIAAABGAAsAAAASAAIAAABHAAsAAAASAAIAAABIAAsAAAASAAIAAABJAAsAAAASAAIAAABKAAsAAAASAAIAAABLAAsAAAASAAIAAABMAAsAAAASAAIAAABNAAsAAAASAAIAAABOAAsAAAASAAIAAABPAAsAAAASAAIAAABQAAsAAAASAAIAAABRAAsAAAASAAIAAABSAAsAAAASAAIAAABTAAsAAAASAAIAAABUAAsAAAASAAIAAABVAAsAAAASAAIAAABWAAsAAAASAAIAAABXAAsAAAASAAIAAABYAAsAAAASAAIAAABZAAgAAAAGAAgAAABZAAkAAAAGAAkAAABZAAoAAAAGAAoAAABaAAgAAAAHAAgAAABaAAkAAAAHAAkAAABaAAoAAAAHAAoAAABbAAgAAAAIAAgAAABbAAkAAAAIAAkAAABbAAoAAAAIAAoAAABcAAUAAAAGAAgAAABcAAYAAAAGAAkAAABcAAcAAAAGAAoAAABdAAUAAAAGAAgAAABdAAYAAAAGAAkAAABdAAcAAAAGAAoAAABeAAUAAAAHAAgAAABeAAYAAAAHAAkAAABeAAcAAAAHAAoAAABfAAIAAAAGAAgAAABfAAMAAAAGAAkAAABfAAQAAAAGAAoAAABgAAIAAAAHAAgAAABgAAMAAAAHAAkAAABgAAQAAAAHAAoAAABhAAIAAAAIAAgAAABhAAMAAAAIAAkAAABhAAQAAAAIAAoAAABiAAUAAAAIAAgAAABiAAYAAAAIAAkAAABiAAcAAAAIAAoAAABjAAUAAAAHAAgAAABjAAYAAAAHAAkAAABjAAcAAAAHAAoAAABkAAUAAAAIAAgAAABkAAYAAAAIAAkAAABkAAcAAAAIAAoAAABgAAUAAAAGAAgAAABgAAYAAAAGAAkAAABgAAcAAAAGAAoAAABhAAUAAAAHAAgAAABhAAYAAAAHAAkAAABhAAcAAAAHAAoAAABfAAUAAAAIAAgAAABfAAYAAAAIAAkAAABfAAcAAAAIAAoAAABlAAgAAAAGAAgAAABlAAkAAAAGAAkAAABlAAoAAAAGAAoAAABmAAgAAAAHAAgAAABmAAkAAAAHAAkAAABmAAoAAAAHAAoAAABnAAgAAAAIAAgAAABnAAkAAAAIAAkAAABnAAoAAAAIAAoAAABoAAoAAAAGAAgAAABoAAsAAAAGAAkAAABoAAwAAAAGAAoAAABpAAoAAAAHAAgAAABpAAwAAAAHAAoAAABqAAoAAAAIAAgAAABqAAsAAAAIAAkAAABqAAwAAAAIAAoAAABwAAcAAAAGAAgAAABwAAgAAAAGAAkAAABwAAkAAAAGAAoAAABxAAcAAAAHAAgAAABxAAgAAAAHAAkAAABxAAkAAAAHAAoAAAByAAcAAAAIAAgAAAByAAgAAAAIAAkAAAByAAkAAAAIAAoAAABzAAQAAAAGAAgAAABzAAUAAAAGAAkAAABzAAYAAAAGAAoAAAB0AAQAAAAHAAgAAAB0AAUAAAAHAAkAAAB0AAYAAAAHAAoAAAB1AAQAAAAIAAgAAAB1AAUAAAAIAAkAAAB1AAYAAAAIAAoAAAB7AAEAAAAGAAgAAAB7AAIAAAAGAAkAAAB7AAMAAAAGAAoAAAB8AAEAAAAHAAgAAAB8AAIAAAAHAAkAAAB8AAMAAAAHAAoAAAB9AAEAAAAIAAgAAAB9AAIAAAAIAAkAAAB9AAMAAAAIAAoAAACEAAgAAAAGAAgAAACEAAkAAAAGAAkAAACEAAoAAAAGAAoAAACFAAgAAAAHAAgAAACFAAkAAAAHAAkAAACFAAoAAAAHAAoAAACGAAgAAAAIAAgAAACGAAkAAAAIAAkAAACGAAoAAAAIAAoAAACNAAMAAAAGAAgAAACNAAQAAAAGAAkAAACNAAUAAAAGAAoAAACOAAMAAAAHAAgAAACOAAQAAAAHAAkAAACOAAUAAAAHAAoAAACPAAMAAAAIAAgAAACPAAQAAAAIAAkAAACPAAUAAAAIAAoAAAA=")
 tile_set = SubResource("TileSet_vwg62")
 
-[node name="MovingPlatform" parent="." instance=ExtResource("2_76ybr")]
-position = Vector2(-161, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
-libraries = {
-&"": SubResource("AnimationLibrary_jjvhh")
-}
-autoplay = "moving"
-
 [node name="Platforms" parent="." instance=ExtResource("2_76ybr")]
 position = Vector2(134, 133)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms"]
+libraries = {
+&"": SubResource("AnimationLibrary_qf6rc")
+}
+
+[node name="Platforms5" parent="." instance=ExtResource("2_76ybr")]
+position = Vector2(459, 41)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms5"]
+libraries = {
+&"": SubResource("AnimationLibrary_qf6rc")
+}
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_76ybr")]
+visible = false
 
 [node name="TreasureChest" parent="." instance=ExtResource("4_vwg62")]
+visible = false
 position = Vector2(16, 106)
 
 [node name="Player" parent="." instance=ExtResource("5_qf6rc")]
+visible = false
 position = Vector2(68, 114)
+
+[node name="Platforms2" parent="." instance=ExtResource("2_76ybr")]
+position = Vector2(678, 57)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms2"]
+libraries = {
+&"": SubResource("AnimationLibrary_5e78q")
+}
+
+[node name="Spikes" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(898, 155)
+
+[node name="Spikes3" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(851, 156)
+
+[node name="Spikes4" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(801, 153)
+
+[node name="Spikes2" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(754, 154)
+
+[node name="Spikes5" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1228, 153)
+
+[node name="Spikes12" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1025, 154)
+
+[node name="Spikes13" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1389, 152)
+
+[node name="Spikes14" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1348, 154)
+
+[node name="Spikes15" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1309, 154)
+
+[node name="Spikes16" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1269, 153)
+
+[node name="Spikes6" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1187, 155)
+
+[node name="Spikes7" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1147, 155)
+
+[node name="Spikes8" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1106, 155)
+
+[node name="Spikes9" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1067, 154)
+
+[node name="Killzone" parent="." instance=ExtResource("8_5e78q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_5e78q")
