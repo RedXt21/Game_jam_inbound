@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cwcv22a0ua1tr"]
+[gd_scene load_steps=14 format=4 uid="uid://cwcv22a0ua1tr"]
 
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_8ffim"]
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_wrinw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_evi0p"]
 [ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="7_lsmp6"]
 [ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/fonts/SuperPixel-m2L8j.ttf" id="8_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="10_chwpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p6j4"]
 texture = ExtResource("1_8ffim")
@@ -309,7 +310,7 @@ tile_map_data = PackedByteArray("AAAAAB0AAAAHAAEAAAACAB0AAAAHAAEAAAABAB0AAAAHAAE
 tile_set = SubResource("TileSet_6444e")
 
 [node name="Player" parent="." instance=ExtResource("2_xfk5q")]
-position = Vector2(11, 209)
+position = Vector2(-43, -70)
 JUMP_VELOCITY = -350.0
 dash_cooldown = 1.25
 
@@ -377,10 +378,10 @@ shape = SubResource("WorldBoundaryShape2D_evi0p")
 position = Vector2(1178, 158)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 20.0
-offset_top = 101.0
-offset_right = 208.0
-offset_bottom = 136.0
+offset_left = 28.0
+offset_top = 137.0
+offset_right = 216.0
+offset_bottom = 172.0
 theme_override_fonts/font = ExtResource("8_xrdnt")
 text = "A or D to move."
 
@@ -391,3 +392,7 @@ offset_right = 507.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("8_xrdnt")
 text = "Space to Jump."
+
+[node name="TreasureChest" parent="." instance=ExtResource("10_chwpn")]
+position = Vector2(-131, -76)
+priority = -1
