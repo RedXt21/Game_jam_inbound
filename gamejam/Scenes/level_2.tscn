@@ -1,14 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://ciq3kuduf3rr5"]
+[gd_scene load_steps=15 format=4 uid="uid://ciq3kuduf3rr5"]
 
+[ext_resource type="Script" uid="uid://dbw0bts6juedt" path="res://Scripts/levelchanger3.gd" id="1_42uki"]
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_cggpd"]
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_smnlx"]
 [ext_resource type="PackedScene" uid="uid://dabsktawxqffj" path="res://Scenes/parallax_background.tscn" id="1_v3rpw"]
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="3_12fag"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="4_1q6tm"]
-[ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="5_v36qu"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="7_055b2"]
 [ext_resource type="Texture2D" uid="uid://bgf6c8onxtljx" path="res://Assets/Items/sign_post.png" id="8_2mgoq"]
-[ext_resource type="Script" uid="uid://d1bmtlwwl2xjt" path="res://Scenes/sign_post.gd" id="9_uhnj4"]
+[ext_resource type="Script" path="res://Scenes/sign_post.gd" id="9_uhnj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12fag"]
 texture = ExtResource("1_smnlx")
@@ -301,7 +301,10 @@ distance = -292.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42uki"]
 size = Vector2(63, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhnj4"]
+
 [node name="level_2" type="Node2D"]
+position = Vector2(2, 0)
 metadata/_edit_vertical_guides_ = [1370.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -320,9 +323,6 @@ tile_set = SubResource("TileSet_1q6tm")
 position = Vector2(63, 185)
 
 [node name="DayNightCycleScene" parent="." instance=ExtResource("4_1q6tm")]
-
-[node name="LevelChanger" parent="." instance=ExtResource("5_v36qu")]
-position = Vector2(2083, 77)
 
 [node name="Killzone" parent="." instance=ExtResource("7_055b2")]
 
@@ -353,5 +353,13 @@ autowrap_mode = 2
 position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_42uki")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2085, 79)
+script = ExtResource("1_42uki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uhnj4")
+
 [connection signal="body_entered" from="SignPost/Area2D" to="SignPost" method="on_body_entered"]
 [connection signal="body_exited" from="SignPost/Area2D" to="SignPost" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
