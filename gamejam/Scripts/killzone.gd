@@ -8,6 +8,7 @@ func _ready():
 
 func _on_body_entered(body: CharacterBody2D) -> void:
 	game_over.visible = true
+	Engine.time_scale = 0.25
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()
 
