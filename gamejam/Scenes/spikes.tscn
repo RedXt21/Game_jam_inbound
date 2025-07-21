@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bibhwabygq1jl"]
+[gd_scene load_steps=9 format=3 uid="uid://bibhwabygq1jl"]
 
 [ext_resource type="Texture2D" uid="uid://bevx3813ls2d1" path="res://Assets/Traps/Spike Head/Idle.png" id="1_a5dqs"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="2_gwqs2"]
+[ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="3_0qgod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwqs2"]
 size = Vector2(27, 27)
@@ -45,3 +46,8 @@ shape = SubResource("SegmentShape2D_0qgod")
 [node name="CollisionShape2DDown" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(10, 20)
 shape = SubResource("SegmentShape2D_qvr35")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_0qgod")]
