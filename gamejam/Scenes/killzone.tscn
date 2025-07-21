@@ -1,17 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnkm476r5qplm"]
+[gd_scene load_steps=2 format=3 uid="uid://dnkm476r5qplm"]
 
 [ext_resource type="Script" uid="uid://do457ewl0w1cc" path="res://Scripts/killzone.gd" id="1_jvagm"]
-[ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="2_iyfga"]
 
 [node name="Killzone" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_jvagm")
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 2.0
 one_shot = true
-
-[node name="GameOver" parent="." instance=ExtResource("2_iyfga")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

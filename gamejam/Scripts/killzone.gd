@@ -1,14 +1,14 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
-@onready var game_over: Panel = $GameOver
+@onready var game_over: Panel = $"../CanvasLayer/GameOver"
 
-func _ready():
+func _ready() -> void:
 	game_over.visible = false
 
 func _on_body_entered(body: CharacterBody2D) -> void:
 	game_over.visible = true
-	Engine.time_scale = 0.25
+	Engine.time_scale = 0.75
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()
 

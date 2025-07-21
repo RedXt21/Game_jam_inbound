@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://cwcv22a0ua1tr"]
+[gd_scene load_steps=13 format=4 uid="uid://cwcv22a0ua1tr"]
 
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_8ffim"]
+[ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_wrinw"]
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://ddrd0x3egdgwk" path="res://Assets/background/background_layer_1.png" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://dxj5ddjnl23j7" path="res://Assets/background/background_layer_2.png" id="4_7p6j4"]
@@ -297,6 +298,10 @@ sources/0 = SubResource("TileSetAtlasSource_7p6j4")
 distance = -377.0
 
 [node name="level_1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_wrinw")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-3, -230)
