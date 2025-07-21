@@ -173,7 +173,7 @@ func handle_wall_slide():
 		is_wall_sliding = false
 
 # --- AnimationPlayer Helper Functions ---
-func play_movement_animation(velocity: Vector2):
+func play_movement_animation(_velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -184,7 +184,7 @@ func play_movement_animation(velocity: Vector2):
 func play_idle_animation():
 	animation_player.play("right_idle")
 
-func play_dash_animation(velocity: Vector2):
+func play_dash_animation(_velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -192,7 +192,7 @@ func play_dash_animation(velocity: Vector2):
 		sprite.flip_h = true
 		animation_player.play("right_walk")
 
-func play_jump_animation(velocity: Vector2):
+func play_jump_animation(_velocity: Vector2):
 	if velocity.x < 0:
 		sprite.flip_h = true
 		animation_player.play("right_jump")

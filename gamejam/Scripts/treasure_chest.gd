@@ -15,11 +15,12 @@ func _ready():
 	is_open = chest_states.get(chest_id, false)
 	if is_open:
 		animated_sprite_2d.play("treasure_opened")
+		$indicator.visible = false
+		$dash.visible = false
 	else:
 		animated_sprite_2d.play("treasure_closed")
-	animated_sprite_2d.play("treasure_closed")
-	$indicator.visible = false
-	$dash.visible = false
+		$indicator.visible = false
+		$dash.visible = false
 
 func _process(_delta):
 	if player_in_range and not is_open and Input.is_action_just_pressed("pick"):

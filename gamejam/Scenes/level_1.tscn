@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bnn1u12tkiukt" path="res://Scenes/player.tscn" id="2_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://ddrd0x3egdgwk" path="res://Assets/background/background_layer_1.png" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://dxj5ddjnl23j7" path="res://Assets/background/background_layer_2.png" id="4_7p6j4"]
-[ext_resource type="Texture2D" uid="uid://b3dkrhmbf8732" path="res://Assets/background/background_layer_3.png" id="5_6444e"]
+[ext_resource type="Texture2D" uid="uid://b286xu2fg3lqn" path="res://Assets/background/background_layer_3.png" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_evi0p"]
 [ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="7_lsmp6"]
 [ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/fonts/SuperPixel-m2L8j.ttf" id="8_xrdnt"]
