@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnc32"]
-size = Vector2(55, 59)
+size = Vector2(79, 59)
 
 [node name="TreasureChest" type="Area2D"]
 collision_layer = 32
@@ -42,8 +42,22 @@ sprite_frames = SubResource("SpriteFrames_gnc32")
 animation = &"treasure_closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1.5)
+position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_gnc32")
+
+[node name="indicator" type="Label" parent="."]
+offset_left = -46.0
+offset_top = -38.0
+offset_right = -6.0
+offset_bottom = -15.0
+text = "press enter"
+
+[node name="dash" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -61.0
+offset_right = -23.0
+offset_bottom = -38.0
+text = "Dash unlocked !!"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
