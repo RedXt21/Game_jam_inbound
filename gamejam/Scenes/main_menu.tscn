@@ -86,6 +86,9 @@ theme_override_fonts/font = ExtResource("3_1ehe0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
 text = "START"
 
+[node name="RESET" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_1ehe0")
@@ -111,4 +114,5 @@ theme_override_font_sizes/font_size = 50
 text = "FARUNG"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/RESET" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

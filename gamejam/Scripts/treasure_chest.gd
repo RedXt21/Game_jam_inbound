@@ -3,7 +3,7 @@ extends Area2D
 signal chest_opened
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@export var chest_id: String = "chest_1" # Set a unique ID for each chest in the editor
+@export var chest_id: String = "chest_1"
 
 var is_open = false
 var player_in_range = null
@@ -26,8 +26,6 @@ func _process(_delta):
 	if player_in_range and not is_open and Input.is_action_just_pressed("pick"):
 		$dash.visible = true
 		open_chest(player_in_range)
-		
-		
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
@@ -44,12 +42,10 @@ func open_chest(player):
 	is_open = true
 	animated_sprite_2d.play("treasure_opened")
 	emit_signal("chest_opened", player)
-	
 	if player.has_method("unlock_dash"):
 		player.unlock_dash()
 		print_debug("Dash Unlocked")
 	save_chest_state()
-	# Optionally: Give player an item, play sound, etc.
 
 func save_chest_state():
 	var chest_states = load_chest_states()
