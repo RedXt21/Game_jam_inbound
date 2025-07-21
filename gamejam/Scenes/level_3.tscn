@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://7rt6il0gb3pt"]
+[gd_scene load_steps=25 format=4 uid="uid://7rt6il0gb3pt"]
 
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_53xsp"]
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_g5cw1"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="8_5e78q"]
 [ext_resource type="Script" uid="uid://dkhkow2rp1lht" path="res://Scripts/levelchanger4.gd" id="9_l4wr6"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="10_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://dxc6ejgd401qu" path="res://Scenes/panel.tscn" id="11_jtv8s"]
+[ext_resource type="Script" uid="uid://bt04tm32jkfws" path="res://Scripts/panel.gd" id="12_c81s1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s8nj6"]
 texture = ExtResource("1_g5cw1")
@@ -427,7 +429,7 @@ autoplay = "move"
 position = Vector2(16, 106)
 
 [node name="Player" parent="." instance=ExtResource("5_qf6rc")]
-position = Vector2(68, 114)
+position = Vector2(1496, 56)
 
 [node name="Platforms2" parent="." instance=ExtResource("2_76ybr")]
 position = Vector2(678, 129.085)
@@ -502,4 +504,17 @@ script = ExtResource("9_l4wr6")
 position = Vector2(1534.75, 25.5)
 shape = SubResource("RectangleShape2D_5e78q")
 
+[node name="Timer" type="Timer" parent="Area2D"]
+wait_time = 3.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Panel" parent="CanvasLayer2" instance=ExtResource("11_jtv8s")]
+offset_left = -1.0
+offset_top = 6.0
+offset_right = -1.0
+offset_bottom = 6.0
+script = ExtResource("12_c81s1")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
