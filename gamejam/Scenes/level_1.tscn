@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cwcv22a0ua1tr"]
+[gd_scene load_steps=15 format=4 uid="uid://cwcv22a0ua1tr"]
 
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_8ffim"]
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_wrinw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="7_lsmp6"]
 [ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/fonts/SuperPixel-m2L8j.ttf" id="8_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="10_chwpn"]
+[ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="11_af3po"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p6j4"]
 texture = ExtResource("1_8ffim")
@@ -299,6 +300,8 @@ sources/0 = SubResource("TileSetAtlasSource_7p6j4")
 distance = -377.0
 
 [node name="level_1" type="Node2D"]
+
+[node name="DayNightCycleScene" parent="." instance=ExtResource("11_af3po")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

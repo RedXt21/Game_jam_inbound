@@ -3,16 +3,11 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
-# --- Player Progression Counters ---
 var steps_taken = 0
 var jumps_performed = 0
-
-# --- Unlock Flags ---
 var speed_upgraded = false
 var double_jump_unlocked = false
 var dash_unlocked = false
-
-# --- Player Stats ---
 @export var SPEED = 150.0
 @export_range(0,1) var deceleration = 0.1
 @export_range(0,1) var acceleration = 0.1
@@ -28,11 +23,7 @@ const UPGRADED_SPEED = 250.0
 @export var dash_start_position := 0.0
 @export var dash_direction := 0
 @export var dash_timer := 0.0
-
-# --- Double Jump State ---
 var has_double_jumped = false
-
-# --- Wall Jump State ---
 var is_wall_sliding = false
 var wall_slide_speed = 200.0
 var wall_jump_force = Vector2(300.0, -350.0)
@@ -44,11 +35,8 @@ func _ready():
 	load_progress()
 
 func _physics_process(delta: float) -> void:
-	# Debug: Print progression counters  
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -56,12 +44,11 @@ func _physics_process(delta: float) -> void:
 			has_double_jumped = false
 			_check_jump_milestone()
 		elif (is_on_wall() or was_on_wall) and can_wall_jump:
-			# Wall jump takes priority over double jump
 			var wall_jump_direction = 1 if get_wall_normal().x < 0 else -1
 			velocity.x = wall_jump_force.x * wall_jump_direction
 			velocity.y = wall_jump_force.y
 			can_wall_jump = false
-			has_double_jumped = false  # Allow double jump after wall jump
+			has_double_jumped = false
 			jumps_performed += 1
 			_check_jump_milestone()
 		elif double_jump_unlocked and not has_double_jumped:
@@ -71,20 +58,15 @@ func _physics_process(delta: float) -> void:
 			_check_jump_milestone()
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= decelerate_on_jump_release
-	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
-	
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * acceleration)
-		# Count a step only if moving and on the ground
 		if is_on_floor():
 			steps_taken += 1
 			_check_step_milestone()
-		# Play movement animation
 		play_movement_animation(velocity)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
-		# Play idle animation when not moving
 		play_idle_animation()
 	handle_wall_slide()
 	if Input.is_action_just_pressed('dash') and direction and not is_dashing and dash_timer <= 0:
@@ -105,20 +87,12 @@ func _physics_process(delta: float) -> void:
 			velocity.y =0
 	if dash_timer > 0 :
 		dash_timer -= delta
-		
 	move_and_slide()
-
-	# Wall slide and reset wall jump
 	handle_wall_slide()
-	
-	# Reset wall jump when touching floor
 	if is_on_floor():
 		can_wall_jump = true
-
-	# Update was_on_wall for next frame
 	was_on_wall = is_on_wall()
 
-# --- Milestone Check Functions ---
 func _check_step_milestone():
 	if not speed_upgraded and steps_taken >= 100:
 		SPEED = UPGRADED_SPEED
@@ -158,22 +132,18 @@ func load_progress():
 		speed_upgraded = save_data.get("speed_upgraded", false)
 		double_jump_unlocked = save_data.get("double_jump_unlocked", false)
 		dash_unlocked = save_data.get("dash_unlocked", false)
-		# Apply upgrades if already unlocked
 		if speed_upgraded:
 			SPEED = UPGRADED_SPEED
 
 func handle_wall_slide():
-	# Check if touching a wall
 	var is_near_wall = is_on_wall()
-	# Wall slide
 	if is_near_wall and not is_on_floor() and velocity.y > 0:
 		is_wall_sliding = true
 		velocity.y = min(velocity.y, wall_slide_speed)
 	else:
 		is_wall_sliding = false
 
-# --- AnimationPlayer Helper Functions ---
-func play_movement_animation(_velocity: Vector2):
+func play_movement_animation(velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -184,7 +154,7 @@ func play_movement_animation(_velocity: Vector2):
 func play_idle_animation():
 	animation_player.play("right_idle")
 
-func play_dash_animation(_velocity: Vector2):
+func play_dash_animation(velocity: Vector2):
 	if velocity.x > 0:
 		sprite.flip_h = false
 		animation_player.play("right_walk")
@@ -192,7 +162,7 @@ func play_dash_animation(_velocity: Vector2):
 		sprite.flip_h = true
 		animation_player.play("right_walk")
 
-func play_jump_animation(_velocity: Vector2):
+func play_jump_animation(velocity: Vector2):
 	if velocity.x < 0:
 		sprite.flip_h = true
 		animation_player.play("right_jump")

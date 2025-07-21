@@ -15,7 +15,6 @@ script = ExtResource("1_2vpqm")
 script = ExtResource("7_2hfvm")
 gradient_texture = ExtResource("8_q68bt")
 INGAME_SPEED = 10.0
-INITIAL_HOUR = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
