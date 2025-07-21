@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dtmohsg271ot4"
-path="res://.godot/imported/RebellionSquad-ZpprZ.ttf-be0c26790554d423578fe14548ee4ff2.fontdata"
+path="res://.godot/imported/RebellionSquad-ZpprZ.ttf-355cd1d9f092ce0c78dfb9603ae0ef40.fontdata"
 
 [deps]
 
-source_file="res://Assets/fonts/RebellionSquad-ZpprZ.ttf"
-dest_files=["res://.godot/imported/RebellionSquad-ZpprZ.ttf-be0c26790554d423578fe14548ee4ff2.fontdata"]
+source_file="res://Assets/Fonts/RebellionSquad-ZpprZ.ttf"
+dest_files=["res://.godot/imported/RebellionSquad-ZpprZ.ttf-355cd1d9f092ce0c78dfb9603ae0ef40.fontdata"]
 
 [params]
 
@@ -25,7 +25,6 @@ modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=4
 keep_rounding_remainders=true
-oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null

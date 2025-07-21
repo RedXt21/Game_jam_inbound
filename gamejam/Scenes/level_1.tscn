@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b286xu2fg3lqn" path="res://Assets/background/background_layer_3.png" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://dnkm476r5qplm" path="res://Scenes/killzone.tscn" id="6_evi0p"]
 [ext_resource type="PackedScene" uid="uid://dxl14r2b1o1i8" path="res://Scenes/level_changer.tscn" id="7_lsmp6"]
-[ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/fonts/SuperPixel-m2L8j.ttf" id="8_xrdnt"]
+[ext_resource type="FontFile" uid="uid://df0jrxfyaj3ec" path="res://Assets/Fonts/SuperPixel-m2L8j.ttf" id="8_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://bp2ua4jt0i5f2" path="res://Scenes/treasureChest.tscn" id="10_chwpn"]
 [ext_resource type="PackedScene" uid="uid://cjn8wqs6tgy71" path="res://Day And Night/demo/daynightcycle_scene.tscn" id="11_af3po"]
 
