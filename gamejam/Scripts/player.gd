@@ -33,6 +33,7 @@ var was_on_wall = false
 func _ready():
 	add_to_group("player")
 	load_progress()
+	$dj.visible = false
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -104,6 +105,9 @@ func _check_jump_milestone():
 	if not double_jump_unlocked and jumps_performed >= 5:
 		double_jump_unlocked = true
 		print("Double jump unlocked!")
+		$dj.visible = true
+		await get_tree().create_timer(2.0).timeout
+		$dj.visible = false
 		save_progress()
 
 func save_progress():
