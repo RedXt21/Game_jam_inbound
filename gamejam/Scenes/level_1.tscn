@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cwcv22a0ua1tr"]
+[gd_scene load_steps=13 format=4 uid="uid://cwcv22a0ua1tr"]
 
 [ext_resource type="Texture2D" uid="uid://56rhhgrvyo60" path="res://Assets/Terrain/Terrain (16x16).png" id="1_8ffim"]
 [ext_resource type="PackedScene" uid="uid://ce3rfttnn55tn" path="res://Scenes/GameOver.tscn" id="1_wrinw"]
