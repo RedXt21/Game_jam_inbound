@@ -98,4 +98,12 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(3, 3)
+
+[node name="dj" type="Label" parent="."]
+offset_left = -86.0
+offset_top = -60.0
+offset_right = -46.0
+offset_bottom = -37.0
+text = "double jump unlocked"
