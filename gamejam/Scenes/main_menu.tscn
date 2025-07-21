@@ -108,8 +108,7 @@ grow_horizontal = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_n45e2")
 theme_override_font_sizes/font_size = 50
-text = "Fargum
-"
+text = "FARUNG"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
