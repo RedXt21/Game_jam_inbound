@@ -102,7 +102,7 @@ func _check_step_milestone():
 		save_progress()
 
 func _check_jump_milestone():
-	if not double_jump_unlocked and jumps_performed >= 5:
+	if not double_jump_unlocked and jumps_performed >= 30:
 		double_jump_unlocked = true
 		print("Double jump unlocked!")
 		$dj.visible = true

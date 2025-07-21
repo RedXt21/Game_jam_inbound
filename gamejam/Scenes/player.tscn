@@ -106,4 +106,6 @@ offset_left = -86.0
 offset_top = -60.0
 offset_right = -46.0
 offset_bottom = -37.0
-text = "double jump unlocked"
+text = "double jump unlocked
+press SHIFT to use"
+horizontal_alignment = 1
