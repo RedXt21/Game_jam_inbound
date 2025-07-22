@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dt6jbuskqvs7g"
-path="res://.godot/imported/pixelmix.ttf-23e081ff4529d894584d9baefb7d0b6f.fontdata"
+path="res://.godot/imported/pixelmix.ttf-a7faa3d75049f6ca2c1734d5110b9908.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/pixelmix/pixelmix.ttf"
-dest_files=["res://.godot/imported/pixelmix.ttf-23e081ff4529d894584d9baefb7d0b6f.fontdata"]
+source_file="res://Assets/fonts/pixelmix/pixelmix.ttf"
+dest_files=["res://.godot/imported/pixelmix.ttf-a7faa3d75049f6ca2c1734d5110b9908.fontdata"]
 
 [params]
 
@@ -25,6 +25,7 @@ modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=1
 keep_rounding_remainders=true
+oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null

@@ -418,50 +418,47 @@ position = Vector2(16, 106)
 [node name="Player" parent="." instance=ExtResource("5_qf6rc")]
 position = Vector2(55, 113)
 
-[node name="Spikes" type="Node2D" parent="."]
-position = Vector2(10, -4)
+[node name="Spikes2" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(898, 155)
 
-[node name="Spikes" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(888, 159)
+[node name="Spikes3" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(851, 156)
 
-[node name="Spikes3" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(841, 160)
+[node name="Spikes4" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(801, 153)
 
-[node name="Spikes4" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(791, 157)
+[node name="Spikes5" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(754, 154)
 
-[node name="Spikes2" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(744, 158)
+[node name="Spikes6" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1228, 153)
 
-[node name="Spikes5" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1218, 157)
+[node name="Spikes12" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1025, 154)
 
-[node name="Spikes12" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1015, 158)
+[node name="Spikes13" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1389, 152)
 
-[node name="Spikes13" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1379, 156)
+[node name="Spikes14" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1348, 154)
 
-[node name="Spikes14" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1338, 158)
+[node name="Spikes15" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1309, 154)
 
-[node name="Spikes15" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1299, 158)
+[node name="Spikes16" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1269, 153)
 
-[node name="Spikes16" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1259, 157)
+[node name="Spikes7" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1187, 155)
 
-[node name="Spikes6" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1177, 159)
+[node name="Spikes8" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1147, 155)
 
-[node name="Spikes7" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1137, 159)
+[node name="Spikes9" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1106, 155)
 
-[node name="Spikes8" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1096, 159)
-
-[node name="Spikes9" parent="Spikes" instance=ExtResource("6_qf6rc")]
-position = Vector2(1057, 158)
+[node name="Spikes10" parent="." instance=ExtResource("6_qf6rc")]
+position = Vector2(1067, 154)
 
 [node name="Killzone" parent="." instance=ExtResource("8_5e78q")]
 
@@ -479,44 +476,41 @@ shape = SubResource("RectangleShape2D_5e78q")
 [node name="Timer" type="Timer" parent="EndGame"]
 wait_time = 3.0
 
-[node name="Platforms" type="Node2D" parent="."]
-
-[node name="Platforms" parent="Platforms" instance=ExtResource("2_76ybr")]
+[node name="Platforms2" parent="." instance=ExtResource("2_76ybr")]
 position = Vector2(418, 133)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platforms"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms2"]
+root_node = NodePath("../../Platforms2")
 libraries = {
 &"": SubResource("AnimationLibrary_qf6rc")
 }
 autoplay = "move"
 
-[node name="Platforms2" parent="Platforms" instance=ExtResource("2_76ybr")]
+[node name="Platforms3" parent="." instance=ExtResource("2_76ybr")]
 position = Vector2(678, 129.085)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platforms2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms3"]
 libraries = {
 &"": SubResource("AnimationLibrary_5e78q")
 }
 autoplay = "move"
 
-[node name="Platforms3" parent="Platforms" instance=ExtResource("2_76ybr")]
+[node name="Platforms4" parent="." instance=ExtResource("2_76ybr")]
 position = Vector2(457, 133)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platforms3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms4"]
 libraries = {
 &"": SubResource("AnimationLibrary_5rvg2")
 }
 autoplay = "move"
 
-[node name="Panels" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Panels"]
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("1_53xsp")]
 
-[node name="GameOver" parent="Panels/CanvasLayer" instance=ExtResource("1_53xsp")]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="Panels"]
-
-[node name="Panel" parent="Panels/CanvasLayer2" instance=ExtResource("11_jtv8s")]
+[node name="Panel" parent="CanvasLayer2" instance=ExtResource("11_jtv8s")]
 offset_left = -1.0
 offset_top = 6.0
 offset_right = -1.0
